@@ -26,12 +26,13 @@ public class StudentRepoImpl implements StudentRepo {
 
 	public Student create(Student student) {
 		// TODO Auto-generated method stub
-		int id = (Integer) currentSession().save(student);
-		Student st = (Student) currentSession().get(Student.class, id);
-		st.getSkills().addAll(student.getSkills());
-		for (Skills skill : student.getSkills()) {
-			skill.setStudent(st);
-		}
+		currentSession().save(student);
+// 		int id = (Integer) currentSession().save(student);
+// 		Student st = (Student) currentSession().get(Student.class, id);
+// 		st.getSkills().addAll(student.getSkills());
+// 		for (Skills skill : student.getSkills()) {
+// 			skill.setStudent(st);
+// 		}
 		return student;
 	}
 
